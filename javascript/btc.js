@@ -393,7 +393,7 @@ btc.new_tx = function () {
 
         var hash = this.transaction_hash(idx);
         var priv = BigInteger.fromByteArrayUnsigned(sk);
-        var curve = EllipticCurve.getSECCurveByName("secp256k1");
+        var curve = EllipticCurve.getSECCurveByName2("secp256k1");
         var n = curve.getN();
         var e = BigInteger.fromByteArrayUnsigned(hash);
         var bad_rs = 0;
