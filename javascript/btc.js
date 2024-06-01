@@ -355,7 +355,7 @@ btc.new_tx = function () {
 
         // Step: a -> hash is a byteArray of the message digest. so h1 == hash in our case
 
-        var curve = EllipticCurve.getSECCurveByName("secp256k1"), N = curve.getN();
+        var curve = EllipticCurve.getSECCurveByName2("secp256k1"), N = curve.getN();
 
         var v = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // Step: b
         var k = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // Step: c
