@@ -89,7 +89,7 @@ btc.base58_decode = function (str) {
 btc.new_pk = function (sk) // Generate a public key from a private key.
 {
     var sk_bigint = BigInteger.fromByteArrayUnsigned(sk);
-    var curve = EllipticCurve.getSECCurveByName("secp256k1");
+    var curve = EllipticCurve.getSECCurveByName2("secp256k1");
 
     var p = curve.getG().multiply(sk_bigint);
     var x = p.getX().toBigInteger();
