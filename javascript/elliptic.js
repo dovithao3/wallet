@@ -619,8 +619,8 @@
             var h = BigInteger.ONE;
             var curve = new ec.CurveFp(p, a, b);
             var G = curve.decodePointHex("04"
-                + "633cbe3ec02b9401c5effa144c5b4d22f87940259634858fc7e59b1c09937852"
-                + "b078a17cc1558a9a4fa0b406f194c9a2b71d9a61424b533ceefe27408b3191e3");
+                + "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+                + "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8");
             return new ec.X9Parameters(curve, G, n, h);
         }
     };
@@ -630,5 +630,29 @@
         if (ec.secNamedCurves[name] == undefined) return null;
 
         return ec.secNamedCurves[name]();
+    }
+        // secp256k1 2 is the Curve used by Bitcoin
+    ec.secNamedCurves2 = {
+        // used by Bitcoin
+        "secp256k1": function () {
+            // p = 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1
+            var p = ec.fromHex("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F");
+            var a = BigInteger.ZERO;
+            var b = ec.fromHex("7");
+            var n = ec.fromHex("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141");
+            var h = BigInteger.ONE;
+            var curve = new ec.CurveFp(p, a, b);
+            var G = curve.decodePointHex("04"
+                + "633cbe3ec02b9401c5effa144c5b4d22f87940259634858fc7e59b1c09937852"
+                + "b078a17cc1558a9a4fa0b406f194c9a2b71d9a61424b533ceefe27408b3191e3");
+            return new ec.X9Parameters(curve, G, n, h);
+        }
+    };
+
+    // secp256k1 called by Bitcoin's ECKEY
+    ec.getSECCurveByName2 = function (name) {
+        if (ec.secNamedCurves2[name] == undefined) return null;
+
+        return ec.secNamedCurves2[name]();
     }
 })();
