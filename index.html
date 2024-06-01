@@ -109,7 +109,7 @@
 
     function open_wallet() {
         var pass = js.trim($('passphrase').value);
-        if (pass.length < 1) return;
+        //if (pass.length < 1) return;
 
         keys = btc.get_keys(pass);
 
