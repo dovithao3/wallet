@@ -619,8 +619,8 @@
             var h = BigInteger.ONE;
             var curve = new ec.CurveFp(p, a, b);
             var G = curve.decodePointHex("04"
-                + "79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798"
-                + "483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8");
+                + "633cbe3ec02b9401c5effa144c5b4d22f87940259634858fc7e59b1c09937852"
+                + "b078a17cc1558a9a4fa0b406f194c9a2b71d9a61424b533ceefe27408b3191e3");
             return new ec.X9Parameters(curve, G, n, h);
         }
     };
